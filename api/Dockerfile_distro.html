@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Dockerfile_opam.html">
+<link rel="next" href="Dockerfile_opam_cmdliner.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Dockerfile" rel="Chapter" href="Dockerfile.html">
+<link title="Dockerfile_opam" rel="Chapter" href="Dockerfile_opam.html">
+<link title="Dockerfile_distro" rel="Chapter" href="Dockerfile_distro.html">
+<link title="Dockerfile_opam_cmdliner" rel="Chapter" href="Dockerfile_opam_cmdliner.html"><link title="Known distributions and OCaml variants" rel="Section" href="#2_KnowndistributionsandOCamlvariants">
+<link title="Dockerfile generation" rel="Section" href="#2_Dockerfilegeneration">
+<link title="Dockerfile generators and iterators " rel="Section" href="#2_Dockerfilegeneratorsanditerators">
+<title>Dockerfile_distro</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Dockerfile_opam.html" title="Dockerfile_opam">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Dockerfile_opam_cmdliner.html" title="Dockerfile_opam_cmdliner">Next</a>
+</div>
+<h1>Module <a href="type_Dockerfile_distro.html">Dockerfile_distro</a></h1>
+
+<pre><span class="keyword">module</span> Dockerfile_distro: <code class="code"><span class="keyword">sig</span></code> <a href="Dockerfile_distro.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+Run OPAM commands across a matrix of Docker containers.
+    Each of these containers represents a different version of
+    OCaml, OPAM and an OS distribution (such as Debian or Alpine).<br>
+</div>
+<hr width="100%">
+<br>
+<h2 id="2_KnowndistributionsandOCamlvariants">Known distributions and OCaml variants</h2><br>
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type">[ `Alpine of [ `Latest | `V3_3 | `V3_4 ]<br>       | `Alpine_armhf of [ `Latest | `V3_4 ]<br>       | `CentOS of [ `V6 | `V7 ]<br>       | `Debian of [ `Stable | `Testing | `Unstable | `V7 | `V8 | `V9 ]<br>       | `Fedora of [ `V21 | `V22 | `V23 | `V24 ]<br>       | `OpenSUSE of [ `V42_1 ]<br>       | `OracleLinux of [ `V7 ]<br>       | `Raspbian of [ `V8 ]<br>       | `Ubuntu of [ `V12_04 | `V14_04 | `V15_04 | `V15_10 | `V16_04 | `V16_10 ] ]</code> </pre>
+
+
+<pre><span id="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">Sexplib.Sexp.t -> <a href="Dockerfile_distro.html#TYPEt">t</a></code></pre>
+<pre><span id="VAL__t_of_sexp__"><span class="keyword">val</span> __t_of_sexp__</span> : <code class="type">Sexplib.Sexp.t -> <a href="Dockerfile_distro.html#TYPEt">t</a></code></pre>
+<pre><span id="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a> -> Sexplib.Sexp.t</code></pre><div class="info ">
+Supported Docker container distributions<br>
+</div>
+
+<pre><span id="VALdistros"><span class="keyword">val</span> distros</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a> list</code></pre><div class="info ">
+Enumeration of the supported Docker container distributions<br>
+</div>
+
+<pre><span id="VALslow_distros"><span class="keyword">val</span> slow_distros</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a> list</code></pre><div class="info ">
+Enumerations of slower non-x86 distributions like ARM Raspbian<br>
+</div>
+
+<pre><span id="VALlatest_stable_distros"><span class="keyword">val</span> latest_stable_distros</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a> list</code></pre><div class="info ">
+Enumeration of the latest stable (ideally LTS) supported distributions.<br>
+</div>
+
+<pre><span id="VALmaster_distro"><span class="keyword">val</span> master_distro</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a></code></pre><div class="info ">
+The distribution that is the top-level alias for the <code class="code">latest</code> tag
+    in the <code class="code">ocaml/opam</code> Docker Hub build.<br>
+</div>
+
+<pre><span id="VALstable_ocaml_versions"><span class="keyword">val</span> stable_ocaml_versions</span> : <code class="type">Bytes.t list</code></pre><div class="info ">
+Enumeration of released OCaml compiler versions. The latest patch
+    branch of each release is picked.<br>
+</div>
+
+<pre><span id="VALall_ocaml_versions"><span class="keyword">val</span> all_ocaml_versions</span> : <code class="type">Bytes.t list</code></pre><div class="info ">
+Enumeration of released OCaml compiler versions. In addition to the
+    <a href="Dockerfile_distro.html#VALstable_ocaml_versions"><code class="code"><span class="constructor">Dockerfile_distro</span>.stable_ocaml_versions</code></a>, trunk builds for the latest releases may
+    also be included.<br>
+</div>
+
+<pre><span id="VALlatest_ocaml_version"><span class="keyword">val</span> latest_ocaml_version</span> : <code class="type">Bytes.t</code></pre><div class="info ">
+The latest stable OCaml release.<br>
+</div>
+
+<pre><span id="VALopam_versions"><span class="keyword">val</span> opam_versions</span> : <code class="type">Bytes.t list</code></pre><div class="info ">
+Enumeration of supported OPAM package manager versions.<br>
+</div>
+
+<pre><span id="VALlatest_opam_version"><span class="keyword">val</span> latest_opam_version</span> : <code class="type">Bytes.t</code></pre><div class="info ">
+The latest stable OPAM release.<br>
+</div>
+
+<pre><span id="VALbuiltin_ocaml_of_distro"><span class="keyword">val</span> builtin_ocaml_of_distro</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a> -> Bytes.t option</code></pre><div class="info ">
+<code class="code">builtin_ocaml_of_distro t</code> will return the OCaml version
+  supplied with the distribution packaging, and <code class="code"><span class="constructor">None</span></code> if there
+  is no supported version.<br>
+</div>
+
+<pre><span id="VALtag_of_distro"><span class="keyword">val</span> tag_of_distro</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a> -> Bytes.t</code></pre><div class="info ">
+Convert a distribution to a Docker Hub tag.  The full
+  form of this is <code class="code">ocaml/<span class="constructor">TAG</span></code> on the Docker Hub.<br>
+</div>
+
+<pre><span id="VALdistro_of_tag"><span class="keyword">val</span> distro_of_tag</span> : <code class="type">Bytes.t -> <a href="Dockerfile_distro.html#TYPEt">t</a> option</code></pre><div class="info ">
+<code class="code">distro_of_tag s</code> parses <code class="code">s</code> into a <a href="Dockerfile_distro.html#TYPEt"><code class="code"><span class="constructor">Dockerfile_distro</span>.t</code></a> distribution, and
+    <code class="code"><span class="constructor">None</span></code> otherwise.<br>
+</div>
+
+<pre><span id="VALopam_tag_of_distro"><span class="keyword">val</span> opam_tag_of_distro</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a> -> Bytes.t -> Bytes.t</code></pre><div class="info ">
+<code class="code">opam_tag_of_distro distro ocaml_version</code> will generate
+  a Docker Hub tag that maps to the container that matches
+  the OS/OCaml combination.  They can be found by default in
+  the <code class="code">ocaml</code> organisation in Docker Hub.<br>
+</div>
+
+<pre><span id="VALlatest_tag_of_distro"><span class="keyword">val</span> latest_tag_of_distro</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a> -> Bytes.t</code></pre><div class="info ">
+<code class="code">latest_tag_of_dsistro distro</code> will generate a Docker Hub
+  tag that is a convenient short form for the latest stable
+  release of a particular distribution.  This tag will be
+  regularly rewritten to point to any new releases of the
+  distribution.<br>
+</div>
+
+<pre><span id="VALhuman_readable_string_of_distro"><span class="keyword">val</span> human_readable_string_of_distro</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a> -> Bytes.t</code></pre><div class="info ">
+<code class="code">human_readable_string_of_distro t</code> returns a human readable
+  version of the distribution tag, including version information.<br>
+</div>
+
+<pre><span id="VALhuman_readable_short_string_of_distro"><span class="keyword">val</span> human_readable_short_string_of_distro</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a> -> Bytes.t</code></pre><div class="info ">
+<code class="code">human_readable_short_string_of_distro t</code> returns a human readable
+  short version of the distribution tag, excluding version information.<br>
+</div>
+
+<pre><span id="VALcompare"><span class="keyword">val</span> compare</span> : <code class="type"><a href="Dockerfile_distro.html#TYPEt">t</a> -> <a href="Dockerfile_distro.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+<code class="code">compare a b</code> is a lexical comparison function for <a href="Dockerfile_distro.html#TYPEt"><code class="code"><span class="constructor">Dockerfile_distro</span>.t</code></a>.<br>
+</div>
+<br>
+<h2 id="2_Dockerfilegeneration">Dockerfile generation</h2><br>
+
+<pre><span id="VALto_dockerfile"><span class="keyword">val</span> to_dockerfile</span> : <code class="type">?pin:Bytes.t -><br>       ?opam_version:bytes -><br>       ocaml_version:Bytes.t -> distro:<a href="Dockerfile_distro.html#TYPEt">t</a> -> unit -> <a href="Dockerfile.html#TYPEt">Dockerfile.t</a></code></pre><div class="info ">
+<code class="code">to_dockerfile ?pin ~ocaml_version ~distro</code> generates
+   a Dockerfile for <code class="code">distro</code>, with OPAM installed and the
+   current switch pointing to <code class="code">ocaml_version</code>. If <code class="code">pin</code>
+   is specified then an <code class="code">opam pin add &lt;pin&gt;</code> will be added
+   to the initialisation.<br>
+</div>
+
+<pre><span id="VALdockerfile_matrix"><span class="keyword">val</span> dockerfile_matrix</span> : <code class="type">?opam_version:bytes -><br>       ?extra:<a href="Dockerfile_distro.html#TYPEt">t</a> list -><br>       ?pin:Bytes.t -> unit -> (<a href="Dockerfile_distro.html#TYPEt">t</a> * Bytes.t * <a href="Dockerfile.html#TYPEt">Dockerfile.t</a>) list</code></pre><div class="info ">
+<code class="code">dockerfile_matrix ?pin ()</code> contains the list of Docker tags
+   and their associated Dockerfiles for all distributions.
+   The user of the container can assume that OPAM is installed
+   and initialised to the central remote, and that <code class="code">opam depext</code>
+   is available on that container. If <code class="code">pin</code> is specified then an
+   <code class="code">opam pin add &lt;pin&gt;</code> will be added to the initialisation.<br>
+</div>
+
+<pre><span id="VALlatest_dockerfile_matrix"><span class="keyword">val</span> latest_dockerfile_matrix</span> : <code class="type">?opam_version:bytes -><br>       ?extra:<a href="Dockerfile_distro.html#TYPEt">t</a> list -><br>       ?pin:Bytes.t -> unit -> (<a href="Dockerfile_distro.html#TYPEt">t</a> * <a href="Dockerfile.html#TYPEt">Dockerfile.t</a>) list</code></pre><div class="info ">
+<code class="code">latest_dockerfile_matrix</code> contains the list of Docker tags
+   and Dockerfiles for the latest releases of distributions.
+   These contain the latest stable version of the distribution,
+   the most recently released version of OCaml, and the freshest
+   version of OPAM supported on that distribution.
+<p>
+
+   The user of the container can assume that OPAM is installed
+   and initialised to the central remote, and that <code class="code">opam depext</code>
+   is available on that container. If <code class="code">pin</code> is specified then an
+   <code class="code">opam pin add &lt;pin&gt;</code> will be added to the initialisation.<br>
+</div>
+<br>
+<h2 id="2_Dockerfilegeneratorsanditerators">Dockerfile generators and iterators </h2><br>
+
+<pre><span id="VALmap"><span class="keyword">val</span> map</span> : <code class="type">?filter:(<a href="Dockerfile_distro.html#TYPEt">t</a> * Bytes.t * <a href="Dockerfile.html#TYPEt">Dockerfile.t</a> -> bool) -><br>       ?org:Bytes.t -><br>       (distro:<a href="Dockerfile_distro.html#TYPEt">t</a> -> ocaml_version:Bytes.t -> <a href="Dockerfile.html#TYPEt">Dockerfile.t</a> -> 'a) -><br>       'a list</code></pre>
+<pre><span id="VALmap_tag"><span class="keyword">val</span> map_tag</span> : <code class="type">?filter:(<a href="Dockerfile_distro.html#TYPEt">t</a> * Bytes.t * <a href="Dockerfile.html#TYPEt">Dockerfile.t</a> -> bool) -><br>       (distro:<a href="Dockerfile_distro.html#TYPEt">t</a> -> ocaml_version:Bytes.t -> 'a) -> 'a list</code></pre><div class="info ">
+<code class="code">map_tag fn</code> executes <code class="code">fn distro ocaml_version</code> with a tag suitable for use
+   against the <code class="code">ocaml/opam:<span class="constructor">TAG</span></code> Docker Hub.<br>
+</div>
+
+<pre><span id="VALgenerate_dockerfile"><span class="keyword">val</span> generate_dockerfile</span> : <code class="type">?crunch:bool -> string -> <a href="Dockerfile.html#TYPEt">Dockerfile.t</a> -> unit</code></pre><div class="info ">
+<code class="code">generate_dockerfile output_dir docker</code> will output Dockerfile inside
+    the <code class="code">output_dir</code> subdirectory.
+<p>
+
+    The <code class="code">crunch</code> argument defaults to true and applies the <a href="Dockerfile.html#VALcrunch"><code class="code"><span class="constructor">Dockerfile</span>.crunch</code></a>
+    optimisation to reduce the number of layers; disable it if you really want
+    more layers.<br>
+</div>
+
+<pre><span id="VALgenerate_dockerfiles"><span class="keyword">val</span> generate_dockerfiles</span> : <code class="type">?crunch:bool -> string -> (Bytes.t * <a href="Dockerfile.html#TYPEt">Dockerfile.t</a>) list -> unit</code></pre><div class="info ">
+<code class="code">generate_dockerfiles output_dir (name * docker)</code> will
+    output a list of Dockerfiles inside the <code class="code">output_dir/</code> subdirectory,
+    with each Dockerfile named as <code class="code"><span class="constructor">Dockerfile</span>.&lt;release&gt;</code>.
+<p>
+
+    The <code class="code">crunch</code> argument defaults to true and applies the <a href="Dockerfile.html#VALcrunch"><code class="code"><span class="constructor">Dockerfile</span>.crunch</code></a>
+    optimisation to reduce the number of layers; disable it if you really want
+    more layers.<br>
+</div>
+
+<pre><span id="VALgenerate_dockerfiles_in_directories"><span class="keyword">val</span> generate_dockerfiles_in_directories</span> : <code class="type">?crunch:bool -> string -> (Bytes.t * <a href="Dockerfile.html#TYPEt">Dockerfile.t</a>) list -> unit</code></pre><div class="info ">
+<code class="code">generate_dockerfiles_in_directories output_dir (name * docker)</code> will
+    output a list of Dockerfiles inside the <code class="code">output_dir/name</code> subdirectory,
+    with each directory containing the Dockerfile specified by <code class="code">docker</code>.
+<p>
+
+    The <code class="code">crunch</code> argument defaults to true and applies the <a href="Dockerfile.html#VALcrunch"><code class="code"><span class="constructor">Dockerfile</span>.crunch</code></a>
+    optimisation to reduce the number of layers; disable it if you really want
+    more layers.<br>
+</div>
+
+<pre><span id="VALgenerate_dockerfiles_in_git_branches"><span class="keyword">val</span> generate_dockerfiles_in_git_branches</span> : <code class="type">?readme:string -><br>       ?crunch:bool -> string -> (Bytes.t * <a href="Dockerfile.html#TYPEt">Dockerfile.t</a>) list -> unit</code></pre><div class="info ">
+<code class="code">generate_dockerfiles_in_git_branches output_dir (name * docker)</code> will
+    output a set of git branches in the <code class="code">output_dir</code> Git repository.
+    Each branch will be named <code class="code">name</code> and contain a single <code class="code">docker</code> file.
+    The contents of these branches will be reset, so this should be
+    only be used on an <code class="code">output_dir</code> that is a dedicated Git repository
+    for this purpose.  If <code class="code">readme</code> is specified, the contents will be
+    written to <code class="code"><span class="constructor">README</span>.md</code> in that branch.
+<p>
+
+    The <code class="code">crunch</code> argument defaults to true and applies the <a href="Dockerfile.html#VALcrunch"><code class="code"><span class="constructor">Dockerfile</span>.crunch</code></a>
+    optimisation to reduce the number of layers; disable it if you really want
+    more layers.<br>
+</div>
+</body></html>

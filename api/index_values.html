@@ -1,0 +1,534 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Dockerfile" rel="Chapter" href="Dockerfile.html">
+<link title="Dockerfile_opam" rel="Chapter" href="Dockerfile_opam.html">
+<link title="Dockerfile_distro" rel="Chapter" href="Dockerfile_distro.html">
+<link title="Dockerfile_opam_cmdliner" rel="Chapter" href="Dockerfile_opam_cmdliner.html"><title>Index of values</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Index of values</h1>
+<table>
+<tr><td align="left"><br></td></tr>
+<tr><td><a href="Dockerfile.html#VAL(@@)">(@@)</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">a @@ b</code> concatenates two Dockerfile fragments into one.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VAL(@@@)">(@@@)</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">a @@@ b</code> concatenates the <code class="code">b</code> list of Dockerfile fragments onto <code class="code">a</code>.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VAL__t_of_sexp__">__t_of_sexp__</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>A</td></tr>
+<tr><td><a href="Dockerfile.html#VALadd">add</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">add ~src ~dst</code> copies new files, directories or remote file URLs
+  from <code class="code">src</code> and adds them to the filesystem of the container at the
+  <code class="code">dst</code> path.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Zypper.html#VALadd_user">add_user</a> [<a href="Dockerfile.Linux.Zypper.html">Dockerfile.Linux.Zypper</a>]</td>
+<td><div class="info">
+<code class="code">add_user username</code> will install a new user with name <code class="code">username</code> and a locked
+        password.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Apk.html#VALadd_user">add_user</a> [<a href="Dockerfile.Linux.Apk.html">Dockerfile.Linux.Apk</a>]</td>
+<td><div class="info">
+<code class="code">add_user username</code> will install a new user with name <code class="code">username</code> and a locked
+        password.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Apt.html#VALadd_user">add_user</a> [<a href="Dockerfile.Linux.Apt.html">Dockerfile.Linux.Apt</a>]</td>
+<td><div class="info">
+<code class="code">add_user username</code> will install a new user with name <code class="code">username</code> and a locked
+        password.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.RPM.html#VALadd_user">add_user</a> [<a href="Dockerfile.Linux.RPM.html">Dockerfile.Linux.RPM</a>]</td>
+<td><div class="info">
+<code class="code">add_user username</code> will install a new user with name <code class="code">username</code> and a locked
+        password.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALall_ocaml_versions">all_ocaml_versions</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+Enumeration of released OCaml compiler versions.
+</div>
+</td></tr>
+<tr><td align="left"><br>B</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALbuiltin_ocaml_of_distro">builtin_ocaml_of_distro</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">builtin_ocaml_of_distro t</code> will return the OCaml version
+  supplied with the distribution packaging, and <code class="code"><span class="constructor">None</span></code> if there
+  is no supported version.
+</div>
+</td></tr>
+<tr><td align="left"><br>C</td></tr>
+<tr><td><a href="Dockerfile_opam_cmdliner.html#VALcmd">cmd</a> [<a href="Dockerfile_opam_cmdliner.html">Dockerfile_opam_cmdliner</a>]</td>
+<td><div class="info">
+This generate a Cmdliner term with various defaults filled in for
+    the manual page, and a default term that specifies an output
+    directory.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALcmd">cmd</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">cmd args</code> provides defaults for an executing container.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALcmd_exec">cmd_exec</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">cmd_exec args</code> provides defaults for an executing container.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALcomment">comment</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+Adds a comment to the Dockerfile for documentation purposes
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALcompare">compare</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">compare a b</code> is a lexical comparison function for <a href="Dockerfile_distro.html#TYPEt"><code class="code"><span class="constructor">Dockerfile_distro</span>.t</code></a>.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALcopy">copy</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">copy ~src ~dst</code> copies new files or directories from <code class="code">src</code> and
+  adds them to the filesystem of the container at the path <code class="code">dst</code>.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALcrunch">crunch</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">crunch t</code> will reduce coincident <a href="Dockerfile.html#VALrun"><code class="code"><span class="constructor">Dockerfile</span>.run</code></a> commands into a single
+  one that is chained using the shell <code class="code"><span class="keywordsign">&amp;&amp;</span></code> operator.
+</div>
+</td></tr>
+<tr><td align="left"><br>D</td></tr>
+<tr><td><a href="Dockerfile.Linux.Zypper.html#VALdev_packages">dev_packages</a> [<a href="Dockerfile.Linux.Zypper.html">Dockerfile.Linux.Zypper</a>]</td>
+<td><div class="info">
+<code class="code">dev_packages ?extra ()</code> will install the base development tools and <code class="code">sudo</code>,
+        <code class="code">passwd</code> and <code class="code">git</code>.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Apk.html#VALdev_packages">dev_packages</a> [<a href="Dockerfile.Linux.Apk.html">Dockerfile.Linux.Apk</a>]</td>
+<td><div class="info">
+<code class="code">dev_packages ?extra ()</code> will install the base alpine-sdk.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Apt.html#VALdev_packages">dev_packages</a> [<a href="Dockerfile.Linux.Apt.html">Dockerfile.Linux.Apt</a>]</td>
+<td><div class="info">
+<code class="code">dev_packages ?extra ()</code> will install the base development tools and <code class="code">sudo</code>,
+        <code class="code">passwd</code> and <code class="code">git</code> and X11.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.RPM.html#VALdev_packages">dev_packages</a> [<a href="Dockerfile.Linux.RPM.html">Dockerfile.Linux.RPM</a>]</td>
+<td><div class="info">
+<code class="code">dev_packages ?extra ()</code> will install the base development tools and <code class="code">sudo</code>,
+        <code class="code">passwd</code> and <code class="code">git</code>.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALdistro_of_tag">distro_of_tag</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">distro_of_tag s</code> parses <code class="code">s</code> into a <a href="Dockerfile_distro.html#TYPEt"><code class="code"><span class="constructor">Dockerfile_distro</span>.t</code></a> distribution, and
+    <code class="code"><span class="constructor">None</span></code> otherwise.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALdistros">distros</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+Enumeration of the supported Docker container distributions
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALdockerfile_matrix">dockerfile_matrix</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">dockerfile_matrix ?pin ()</code> contains the list of Docker tags
+   and their associated Dockerfiles for all distributions.
+</div>
+</td></tr>
+<tr><td align="left"><br>E</td></tr>
+<tr><td><a href="Dockerfile.html#VALempty">empty</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+An empty set of instruction lines.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALentrypoint">entrypoint</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">entrypoint fmt</code> allows you to configure a container that will
+  run as an executable.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALentrypoint_exec">entrypoint_exec</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">entrypoint fmt</code> allows you to configure a container that will
+  run as an executable.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALenv">env</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">env</code> sets the list of environment variables supplied with the
+  (&lt;key&gt;, &lt;value&gt;) tuple.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALexpose_port">expose_port</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">expose_port</code> informs Docker that the container will listen on the specified
+  network port at runtime.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALexpose_ports">expose_ports</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">expose_ports</code> informs Docker that the container will listen on the specified
+  network ports at runtime.
+</div>
+</td></tr>
+<tr><td align="left"><br>F</td></tr>
+<tr><td><a href="Dockerfile.html#VALfrom">from</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+The <code class="code">from</code> instruction sets the base image for subsequent instructions.
+</div>
+</td></tr>
+<tr><td align="left"><br>G</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALgenerate_dockerfile">generate_dockerfile</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">generate_dockerfile output_dir docker</code> will output Dockerfile inside
+    the <code class="code">output_dir</code> subdirectory.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALgenerate_dockerfiles">generate_dockerfiles</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">generate_dockerfiles output_dir (name * docker)</code> will
+    output a list of Dockerfiles inside the <code class="code">output_dir/</code> subdirectory,
+    with each Dockerfile named as <code class="code"><span class="constructor">Dockerfile</span>.&lt;release&gt;</code>.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALgenerate_dockerfiles_in_directories">generate_dockerfiles_in_directories</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">generate_dockerfiles_in_directories output_dir (name * docker)</code> will
+    output a list of Dockerfiles inside the <code class="code">output_dir/name</code> subdirectory,
+    with each directory containing the Dockerfile specified by <code class="code">docker</code>.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALgenerate_dockerfiles_in_git_branches">generate_dockerfiles_in_git_branches</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">generate_dockerfiles_in_git_branches output_dir (name * docker)</code> will
+    output a set of git branches in the <code class="code">output_dir</code> Git repository.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.RPM.html#VALgroupinstall">groupinstall</a> [<a href="Dockerfile.Linux.RPM.html">Dockerfile.Linux.RPM</a>]</td>
+<td><div class="info">
+<code class="code">groupinstall fmt</code> will run <code class="code">yum groupinstall</code> on the supplied package list.
+</div>
+</td></tr>
+<tr><td align="left"><br>H</td></tr>
+<tr><td><a href="Dockerfile_opam.html#VALheader">header</a> [<a href="Dockerfile_opam.html">Dockerfile_opam</a>]</td>
+<td><div class="info">
+<code class="code">header image tag</code> initalises a fresh Dockerfile using the <code class="code">image:tag</code>
+    as its base.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALhuman_readable_short_string_of_distro">human_readable_short_string_of_distro</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">human_readable_short_string_of_distro t</code> returns a human readable
+  short version of the distribution tag, excluding version information.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALhuman_readable_string_of_distro">human_readable_string_of_distro</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">human_readable_string_of_distro t</code> returns a human readable
+  version of the distribution tag, including version information.
+</div>
+</td></tr>
+<tr><td align="left"><br>I</td></tr>
+<tr><td><a href="Dockerfile.Linux.Git.html#VALinit">init</a> [<a href="Dockerfile.Linux.Git.html">Dockerfile.Linux.Git</a>]</td>
+<td><div class="info">
+Configure the git name and email variables to sensible defaults
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Zypper.html#VALinstall">install</a> [<a href="Dockerfile.Linux.Zypper.html">Dockerfile.Linux.Zypper</a>]</td>
+<td><div class="info">
+<code class="code">install fmt</code> will <code class="code">zypper update <span class="keywordsign">&amp;&amp;</span> zypper install</code> the packages specified by the <code class="code">fmt</code> format string.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Apk.html#VALinstall">install</a> [<a href="Dockerfile.Linux.Apk.html">Dockerfile.Linux.Apk</a>]</td>
+<td><div class="info">
+<code class="code">install fmt</code> will <code class="code">apk add</code> the packages specified by the <code class="code">fmt</code> format string.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Apt.html#VALinstall">install</a> [<a href="Dockerfile.Linux.Apt.html">Dockerfile.Linux.Apt</a>]</td>
+<td><div class="info">
+<code class="code">install fmt</code> will <code class="code">apt-get update <span class="keywordsign">&amp;&amp;</span> apt-get install</code> the packages specified by the <code class="code">fmt</code> format string.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.RPM.html#VALinstall">install</a> [<a href="Dockerfile.Linux.RPM.html">Dockerfile.Linux.RPM</a>]</td>
+<td><div class="info">
+<code class="code">install fmt</code> will run <code class="code">yum install</code> on the supplied package list.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_opam.html#VALinstall_cloud_solver">install_cloud_solver</a> [<a href="Dockerfile_opam.html">Dockerfile_opam</a>]</td>
+<td><div class="info">
+<code class="code">install_cloud_solver</code> will use the hosted OPAM aspcud service from IRILL.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_opam.html#VALinstall_opam_from_source">install_opam_from_source</a> [<a href="Dockerfile_opam.html">Dockerfile_opam</a>]</td>
+<td><div class="info">
+Commands to install OPAM via a source code checkout from GitHub.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Zypper.html#VALinstall_system_ocaml">install_system_ocaml</a> [<a href="Dockerfile.Linux.Zypper.html">Dockerfile.Linux.Zypper</a>]</td>
+<td><div class="info">
+Install the system OCaml packages via <code class="code">zypper</code>
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Apk.html#VALinstall_system_ocaml">install_system_ocaml</a> [<a href="Dockerfile.Linux.Apk.html">Dockerfile.Linux.Apk</a>]</td>
+<td><div class="info">
+Install the system OCaml packages via Apk.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Apt.html#VALinstall_system_ocaml">install_system_ocaml</a> [<a href="Dockerfile.Linux.Apt.html">Dockerfile.Linux.Apt</a>]</td>
+<td><div class="info">
+Install the system OCaml packages via <code class="code">apt-get</code>
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.RPM.html#VALinstall_system_ocaml">install_system_ocaml</a> [<a href="Dockerfile.Linux.RPM.html">Dockerfile.Linux.RPM</a>]</td>
+<td><div class="info">
+Install the system OCaml packages via Yum
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_opam.Apt.html#VALinstall_system_opam">install_system_opam</a> [<a href="Dockerfile_opam.Apt.html">Dockerfile_opam.Apt</a>]</td>
+<td><div class="info">
+Install the system OPAM packages via <code class="code">apt-get</code>
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_opam.RPM.html#VALinstall_system_opam">install_system_opam</a> [<a href="Dockerfile_opam.RPM.html">Dockerfile_opam.RPM</a>]</td>
+<td><div class="info">
+Install the system OPAM packages via Yum
+</div>
+</td></tr>
+<tr><td align="left"><br>L</td></tr>
+<tr><td><a href="Dockerfile.html#VALlabel">label</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">label l</code> adds metadata to an image via a list of key-value pairs.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALlatest_dockerfile_matrix">latest_dockerfile_matrix</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">latest_dockerfile_matrix</code> contains the list of Docker tags
+   and Dockerfiles for the latest releases of distributions.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALlatest_ocaml_version">latest_ocaml_version</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+The latest stable OCaml release.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALlatest_opam_version">latest_opam_version</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+The latest stable OPAM release.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALlatest_stable_distros">latest_stable_distros</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+Enumeration of the latest stable (ideally LTS) supported distributions.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALlatest_tag_of_distro">latest_tag_of_distro</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">latest_tag_of_dsistro distro</code> will generate a Docker Hub
+  tag that is a convenient short form for the latest stable
+  release of a particular distribution.
+</div>
+</td></tr>
+<tr><td align="left"><br>M</td></tr>
+<tr><td><a href="Dockerfile.html#VALmaintainer">maintainer</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">maintainer</code> sets the author field of the generated images.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALmap">map</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td></td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALmap_tag">map_tag</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">map_tag fn</code> executes <code class="code">fn distro ocaml_version</code> with a tag suitable for use
+   against the <code class="code">ocaml/opam:<span class="constructor">TAG</span></code> Docker Hub.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALmaster_distro">master_distro</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+The distribution that is the top-level alias for the <code class="code">latest</code> tag
+    in the <code class="code">ocaml/opam</code> Docker Hub build.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALmaybe">maybe</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">maybe f v</code> returns <a href="Dockerfile.html#VALempty"><code class="code"><span class="constructor">Dockerfile</span>.empty</code></a> if the optional value <code class="code">v</code> is <code class="code"><span class="constructor">None</span></code>, and
+    otherwise applies <code class="code">f</code> to the <code class="code"><span class="constructor">Some</span></code> value in <code class="code">v</code>.
+</div>
+</td></tr>
+<tr><td align="left"><br>O</td></tr>
+<tr><td><a href="Dockerfile.html#VALonbuild">onbuild</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">onbuild t</code> adds to the image a trigger instruction <code class="code">t</code> to be
+  executed at a later time, when the image is used as the base for
+  another build.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_opam.html#VALopam_init">opam_init</a> [<a href="Dockerfile_opam.html">Dockerfile_opam</a>]</td>
+<td><div class="info">
+<code class="code">opam_init ?branch ?repo ?need_upgrade ?compiler_version</code> initialises the OPAM
+    repository.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALopam_tag_of_distro">opam_tag_of_distro</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">opam_tag_of_distro distro ocaml_version</code> will generate
+  a Docker Hub tag that maps to the container that matches
+  the OS/OCaml combination.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALopam_versions">opam_versions</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+Enumeration of supported OPAM package manager versions.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_opam.html#VALopamhome">opamhome</a> [<a href="Dockerfile_opam.html">Dockerfile_opam</a>]</td>
+<td><div class="info">
+The location of the <code class="code">opam</code> user home directory
+</div>
+</td></tr>
+<tr><td align="left"><br>R</td></tr>
+<tr><td><a href="Dockerfile_opam_cmdliner.html#VALrun">run</a> [<a href="Dockerfile_opam_cmdliner.html">Dockerfile_opam_cmdliner</a>]</td>
+<td><div class="info">
+<code class="code">run</code> executes the term that results from <a href="Dockerfile_opam_cmdliner.html#VALcmd"><code class="code"><span class="constructor">Dockerfile_opam_cmdliner</span>.cmd</code></a> and returns with
+    a non-zero exit code if there is an error.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALrun">run</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">run fmt</code> will execute any commands in a new layer on top of the current
+  image and commit the results.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_opam.html#VALrun_as_opam">run_as_opam</a> [<a href="Dockerfile_opam.html">Dockerfile_opam</a>]</td>
+<td><div class="info">
+<code class="code">run_as_opam fmt</code> runs the command specified by the <code class="code">fmt</code>
+    format string as the <code class="code">opam</code> user.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.html#VALrun_as_user">run_as_user</a> [<a href="Dockerfile.Linux.html">Dockerfile.Linux</a>]</td>
+<td><div class="info">
+<code class="code">run_as_user user fmt</code> will execute <code class="code">sudo -u user /bin/sh -c <span class="string">"fmt"</span></code> after
+      quoting <code class="code">fmt</code>.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALrun_exec">run_exec</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">run_exec args</code> will execute any commands in a new layer on top of the current
+  image and commit the results.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.html#VALrun_sh">run_sh</a> [<a href="Dockerfile.Linux.html">Dockerfile.Linux</a>]</td>
+<td><div class="info">
+<code class="code">run_sh fmt</code> will execute <code class="code">/bin/sh -c <span class="string">"fmt"</span></code> after quoting <code class="code">fmt</code>.
+</div>
+</td></tr>
+<tr><td align="left"><br>S</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALsexp_of_t">sexp_of_t</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+Supported Docker container distributions
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALsexp_of_t">sexp_of_t</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">t</code> is a list of Dockerfile lines
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALslow_distros">slow_distros</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+Enumerations of slower non-x86 distributions like ARM Raspbian
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALstable_ocaml_versions">stable_ocaml_versions</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+Enumeration of released OCaml compiler versions.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALstring_of_t">string_of_t</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">string_of_t t</code> converts a <a href="Dockerfile.html#TYPEt"><code class="code"><span class="constructor">Dockerfile</span>.t</code></a> into a Dockerfile format entry
+</div>
+</td></tr>
+<tr><td align="left"><br>T</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALt_of_sexp">t_of_sexp</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td></td></tr>
+<tr><td><a href="Dockerfile.html#VALt_of_sexp">t_of_sexp</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td></td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALtag_of_distro">tag_of_distro</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+Convert a distribution to a Docker Hub tag.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile_distro.html#VALto_dockerfile">to_dockerfile</a> [<a href="Dockerfile_distro.html">Dockerfile_distro</a>]</td>
+<td><div class="info">
+<code class="code">to_dockerfile ?pin ~ocaml_version ~distro</code> generates
+   a Dockerfile for <code class="code">distro</code>, with OPAM installed and the
+   current switch pointing to <code class="code">ocaml_version</code>.
+</div>
+</td></tr>
+<tr><td align="left"><br>U</td></tr>
+<tr><td><a href="Dockerfile.Linux.Zypper.html#VALupdate">update</a> [<a href="Dockerfile.Linux.Zypper.html">Dockerfile.Linux.Zypper</a>]</td>
+<td><div class="info">
+<code class="code">update</code> will run <code class="code">zypper update</code> non-interactively.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Apk.html#VALupdate">update</a> [<a href="Dockerfile.Linux.Apk.html">Dockerfile.Linux.Apk</a>]</td>
+<td><div class="info">
+<code class="code">update</code> will run <code class="code">apk update <span class="keywordsign">&amp;&amp;</span> apk upgrade</code> non-interactively.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.Linux.Apt.html#VALupdate">update</a> [<a href="Dockerfile.Linux.Apt.html">Dockerfile.Linux.Apt</a>]</td>
+<td><div class="info">
+<code class="code">update</code> will run <code class="code">apt-get update <span class="keywordsign">&amp;&amp;</span> apt-get upgrade</code> non-interactively.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALuser">user</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">user fmt</code> sets the user name or UID to use when running the image
+  and for any <a href="Dockerfile.html#VALrun"><code class="code"><span class="constructor">Dockerfile</span>.run</code></a>, <a href="Dockerfile.html#VALcmd"><code class="code"><span class="constructor">Dockerfile</span>.cmd</code></a>, <a href="Dockerfile.html#VALentrypoint"><code class="code"><span class="constructor">Dockerfile</span>.entrypoint</code></a> commands that follow it in
+  the Dockerfile.
+</div>
+</td></tr>
+<tr><td align="left"><br>V</td></tr>
+<tr><td><a href="Dockerfile.html#VALvolume">volume</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">volume fmt</code> will create a mount point with the specified name
+  and mark it as holding externally mounted volumes from native host
+  or other containers.
+</div>
+</td></tr>
+<tr><td><a href="Dockerfile.html#VALvolumes">volumes</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">volumes mounts</code> will create mount points with the specified names
+  in <code class="code">mounts</code> and mark them as holding externally mounted volumes
+  from native host or other containers.
+</div>
+</td></tr>
+<tr><td align="left"><br>W</td></tr>
+<tr><td><a href="Dockerfile.html#VALworkdir">workdir</a> [<a href="Dockerfile.html">Dockerfile</a>]</td>
+<td><div class="info">
+<code class="code">workdir fmt</code> sets the working directory for any <a href="Dockerfile.html#VALrun"><code class="code"><span class="constructor">Dockerfile</span>.run</code></a>, <a href="Dockerfile.html#VALcmd"><code class="code"><span class="constructor">Dockerfile</span>.cmd</code></a>
+  and <a href="Dockerfile.html#VALentrypoint"><code class="code"><span class="constructor">Dockerfile</span>.entrypoint</code></a> instructions that follow it in the Dockerfile.
+</div>
+</td></tr>
+</table>
+</body>
+</html>

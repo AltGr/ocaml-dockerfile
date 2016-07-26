@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Dockerfile.Linux.Apk.html">
+<link rel="next" href="Dockerfile.Linux.Git.html">
+<link rel="Up" href="Dockerfile.Linux.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Dockerfile" rel="Chapter" href="Dockerfile.html">
+<link title="Dockerfile_opam" rel="Chapter" href="Dockerfile_opam.html">
+<link title="Dockerfile_distro" rel="Chapter" href="Dockerfile_distro.html">
+<link title="Dockerfile_opam_cmdliner" rel="Chapter" href="Dockerfile_opam_cmdliner.html"><title>Dockerfile.Linux.Zypper</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Dockerfile.Linux.Apk.html" title="Dockerfile.Linux.Apk">Previous</a>
+&nbsp;<a class="up" href="Dockerfile.Linux.html" title="Dockerfile.Linux">Up</a>
+&nbsp;<a class="post" href="Dockerfile.Linux.Git.html" title="Dockerfile.Linux.Git">Next</a>
+</div>
+<h1>Module <a href="type_Dockerfile.Linux.Zypper.html">Dockerfile.Linux.Zypper</a></h1>
+
+<pre><span class="keyword">module</span> Zypper: <code class="code"><span class="keyword">sig</span></code> <a href="Dockerfile.Linux.Zypper.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+Rules for Zypper-based distributions such as OpenSUSE<br>
+</div>
+<hr width="100%">
+
+<pre><span id="VALupdate"><span class="keyword">val</span> update</span> : <code class="type"><a href="Dockerfile.html#TYPEt">Dockerfile.t</a></code></pre><div class="info ">
+<code class="code">update</code> will run <code class="code">zypper update</code> non-interactively.<br>
+</div>
+
+<pre><span id="VALinstall"><span class="keyword">val</span> install</span> : <code class="type">('a, unit, string, <a href="Dockerfile.html#TYPEt">Dockerfile.t</a>) Pervasives.format4 -> 'a</code></pre><div class="info ">
+<code class="code">install fmt</code> will <code class="code">zypper update <span class="keywordsign">&amp;&amp;</span> zypper install</code> the packages specified by the <code class="code">fmt</code> format string.<br>
+</div>
+
+<pre><span id="VALadd_user"><span class="keyword">val</span> add_user</span> : <code class="type">?uid:int -> ?gid:int -> ?sudo:bool -> string -> <a href="Dockerfile.html#TYPEt">Dockerfile.t</a></code></pre><div class="info ">
+<code class="code">add_user username</code> will install a new user with name <code class="code">username</code> and a locked
+        password.  If <code class="code">sudo</code> is true then root access with no password will also be
+        configured.  The default value for <code class="code">sudo</code> is <code class="code"><span class="keyword">false</span></code>.<br>
+</div>
+
+<pre><span id="VALdev_packages"><span class="keyword">val</span> dev_packages</span> : <code class="type">?extra:string -> unit -> <a href="Dockerfile.html#TYPEt">Dockerfile.t</a></code></pre><div class="info ">
+<code class="code">dev_packages ?extra ()</code> will install the base development tools and <code class="code">sudo</code>,
+        <code class="code">passwd</code> and <code class="code">git</code>.  Extra packages may also be optionally supplied via <code class="code">extra</code>.<br>
+</div>
+
+<pre><span id="VALinstall_system_ocaml"><span class="keyword">val</span> install_system_ocaml</span> : <code class="type"><a href="Dockerfile.html#TYPEt">Dockerfile.t</a></code></pre><div class="info ">
+Install the system OCaml packages via <code class="code">zypper</code><br>
+</div>
+</body></html>

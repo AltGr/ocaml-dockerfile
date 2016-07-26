@@ -1,0 +1,30 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Dockerfile" rel="Chapter" href="Dockerfile.html">
+<link title="Dockerfile_opam" rel="Chapter" href="Dockerfile_opam.html">
+<link title="Dockerfile_distro" rel="Chapter" href="Dockerfile_distro.html">
+<link title="Dockerfile_opam_cmdliner" rel="Chapter" href="Dockerfile_opam_cmdliner.html"><title>Dockerfile_opam</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">RPM</span>&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;install_system_opam&nbsp;:&nbsp;[&lt;&nbsp;<span class="keywordsign">`</span><span class="constructor">CentOS6</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">CentOS7</span>&nbsp;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile</span>.t
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Apt</span>&nbsp;:&nbsp;<span class="keyword">sig</span>&nbsp;<span class="keyword">val</span>&nbsp;install_system_opam&nbsp;:&nbsp;<span class="constructor">Dockerfile</span>.t&nbsp;<span class="keyword">end</span>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;run_as_opam&nbsp;:&nbsp;(<span class="keywordsign">'</span>a,&nbsp;unit,&nbsp;string,&nbsp;<span class="constructor">Dockerfile</span>.t)&nbsp;<span class="constructor">Pervasives</span>.format4&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;opamhome&nbsp;:&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;opam_init&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?branch:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?repo:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?need_upgrade:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?compiler_version:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;install_opam_from_source&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?prefix:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?branch:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;install_cloud_solver&nbsp;:&nbsp;<span class="constructor">Dockerfile</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;header&nbsp;:&nbsp;?maintainer:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile</span>.t
+<span class="keyword">end</span></code></body></html>
