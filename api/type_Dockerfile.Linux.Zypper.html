@@ -1,0 +1,20 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Dockerfile" rel="Chapter" href="Dockerfile.html">
+<link title="Dockerfile_opam" rel="Chapter" href="Dockerfile_opam.html">
+<link title="Dockerfile_distro" rel="Chapter" href="Dockerfile_distro.html">
+<link title="Dockerfile_opam_cmdliner" rel="Chapter" href="Dockerfile_opam_cmdliner.html"><title>Dockerfile.Linux.Zypper</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;update&nbsp;:&nbsp;<span class="constructor">Dockerfile</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;install&nbsp;:&nbsp;(<span class="keywordsign">'</span>a,&nbsp;unit,&nbsp;string,&nbsp;<span class="constructor">Dockerfile</span>.t)&nbsp;<span class="constructor">Pervasives</span>.format4&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_user&nbsp;:&nbsp;?uid:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?gid:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?sudo:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;dev_packages&nbsp;:&nbsp;?extra:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;install_system_ocaml&nbsp;:&nbsp;<span class="constructor">Dockerfile</span>.t
+<span class="keyword">end</span></code></body></html>

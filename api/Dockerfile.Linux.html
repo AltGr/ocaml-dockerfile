@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="Dockerfile.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Dockerfile" rel="Chapter" href="Dockerfile.html">
+<link title="Dockerfile_opam" rel="Chapter" href="Dockerfile_opam.html">
+<link title="Dockerfile_distro" rel="Chapter" href="Dockerfile_distro.html">
+<link title="Dockerfile_opam_cmdliner" rel="Chapter" href="Dockerfile_opam_cmdliner.html"><title>Dockerfile.Linux</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Dockerfile.html" title="Dockerfile">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Dockerfile.Linux.html">Dockerfile.Linux</a></h1>
+
+<pre><span class="keyword">module</span> Linux: <code class="code"><span class="keyword">sig</span></code> <a href="Dockerfile.Linux.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+Linux-specific shell commands that are of general use.<br>
+</div>
+<hr width="100%">
+
+<pre><span id="VALrun_sh"><span class="keyword">val</span> run_sh</span> : <code class="type">('a, unit, string, <a href="Dockerfile.html#TYPEt">Dockerfile.t</a>) Pervasives.format4 -> 'a</code></pre><div class="info ">
+<code class="code">run_sh fmt</code> will execute <code class="code">/bin/sh -c <span class="string">"fmt"</span></code> after quoting <code class="code">fmt</code>.<br>
+</div>
+
+<pre><span id="VALrun_as_user"><span class="keyword">val</span> run_as_user</span> : <code class="type">string -> ('a, unit, string, <a href="Dockerfile.html#TYPEt">Dockerfile.t</a>) Pervasives.format4 -> 'a</code></pre><div class="info ">
+<code class="code">run_as_user user fmt</code> will execute <code class="code">sudo -u user /bin/sh -c <span class="string">"fmt"</span></code> after
+      quoting <code class="code">fmt</code>.<br>
+</div>
+
+<pre><span class="keyword">module</span> <a href="Dockerfile.Linux.RPM.html">RPM</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Dockerfile.Linux.RPM.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Rules for RPM-based distributions
+</div>
+
+<pre><span class="keyword">module</span> <a href="Dockerfile.Linux.Apt.html">Apt</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Dockerfile.Linux.Apt.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Rules for Apt-based distributions
+</div>
+
+<pre><span class="keyword">module</span> <a href="Dockerfile.Linux.Apk.html">Apk</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Dockerfile.Linux.Apk.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Rules for Apk-based distributions such as Alpine Linux
+</div>
+
+<pre><span class="keyword">module</span> <a href="Dockerfile.Linux.Zypper.html">Zypper</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Dockerfile.Linux.Zypper.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Rules for Zypper-based distributions such as OpenSUSE
+</div>
+
+<pre><span class="keyword">module</span> <a href="Dockerfile.Linux.Git.html">Git</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Dockerfile.Linux.Git.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Rules for Git
+</div>
+</body></html>

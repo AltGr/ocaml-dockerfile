@@ -1,0 +1,77 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Dockerfile" rel="Chapter" href="Dockerfile.html">
+<link title="Dockerfile_opam" rel="Chapter" href="Dockerfile_opam.html">
+<link title="Dockerfile_distro" rel="Chapter" href="Dockerfile_distro.html">
+<link title="Dockerfile_opam_cmdliner" rel="Chapter" href="Dockerfile_opam_cmdliner.html"><title>Dockerfile_distro</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Alpine</span>&nbsp;<span class="keyword">of</span>&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Latest</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V3_3</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V3_4</span>&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Alpine_armhf</span>&nbsp;<span class="keyword">of</span>&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Latest</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V3_4</span>&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">CentOS</span>&nbsp;<span class="keyword">of</span>&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">V6</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V7</span>&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Debian</span>&nbsp;<span class="keyword">of</span>&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Stable</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Testing</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Unstable</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V7</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V8</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V9</span>&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Fedora</span>&nbsp;<span class="keyword">of</span>&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">V21</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V22</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V23</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V24</span>&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">OpenSUSE</span>&nbsp;<span class="keyword">of</span>&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">V42_1</span>&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">OracleLinux</span>&nbsp;<span class="keyword">of</span>&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">V7</span>&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Raspbian</span>&nbsp;<span class="keyword">of</span>&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">V8</span>&nbsp;]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Ubuntu</span>&nbsp;<span class="keyword">of</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">V12_04</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V14_04</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V15_04</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V15_10</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V16_04</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">V16_10</span>&nbsp;]&nbsp;]
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;t_of_sexp&nbsp;:&nbsp;<span class="constructor">Sexplib</span>.<span class="constructor">Sexp</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile_distro</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;__t_of_sexp__&nbsp;:&nbsp;<span class="constructor">Sexplib</span>.<span class="constructor">Sexp</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile_distro</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;sexp_of_t&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Sexplib</span>.<span class="constructor">Sexp</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;distros&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;slow_distros&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;latest_stable_distros&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;master_distro&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;stable_ocaml_versions&nbsp;:&nbsp;<span class="constructor">Bytes</span>.t&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;all_ocaml_versions&nbsp;:&nbsp;<span class="constructor">Bytes</span>.t&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;latest_ocaml_version&nbsp;:&nbsp;<span class="constructor">Bytes</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;opam_versions&nbsp;:&nbsp;<span class="constructor">Bytes</span>.t&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;latest_opam_version&nbsp;:&nbsp;<span class="constructor">Bytes</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;builtin_ocaml_of_distro&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Bytes</span>.t&nbsp;option
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;tag_of_distro&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Bytes</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;distro_of_tag&nbsp;:&nbsp;<span class="constructor">Bytes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;option
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;opam_tag_of_distro&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Bytes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Bytes</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;latest_tag_of_distro&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Bytes</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;human_readable_string_of_distro&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Bytes</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;human_readable_short_string_of_distro&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Bytes</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;compare&nbsp;:&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_dockerfile&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?pin:<span class="constructor">Bytes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?opam_version:bytes&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;ocaml_version:<span class="constructor">Bytes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;distro:<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;dockerfile_matrix&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?opam_version:bytes&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?extra:<span class="constructor">Dockerfile_distro</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?pin:<span class="constructor">Bytes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">Dockerfile_distro</span>.t&nbsp;*&nbsp;<span class="constructor">Bytes</span>.t&nbsp;*&nbsp;<span class="constructor">Dockerfile</span>.t)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;latest_dockerfile_matrix&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?opam_version:bytes&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?extra:<span class="constructor">Dockerfile_distro</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?pin:<span class="constructor">Bytes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">Dockerfile_distro</span>.t&nbsp;*&nbsp;<span class="constructor">Dockerfile</span>.t)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;map&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?filter:(<span class="constructor">Dockerfile_distro</span>.t&nbsp;*&nbsp;<span class="constructor">Bytes</span>.t&nbsp;*&nbsp;<span class="constructor">Dockerfile</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?org:<span class="constructor">Bytes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;(distro:<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ocaml_version:<span class="constructor">Bytes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">'</span>a&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;map_tag&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?filter:(<span class="constructor">Dockerfile_distro</span>.t&nbsp;*&nbsp;<span class="constructor">Bytes</span>.t&nbsp;*&nbsp;<span class="constructor">Dockerfile</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;(distro:<span class="constructor">Dockerfile_distro</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;ocaml_version:<span class="constructor">Bytes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;generate_dockerfile&nbsp;:&nbsp;?crunch:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dockerfile</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;generate_dockerfiles&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?crunch:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">Bytes</span>.t&nbsp;*&nbsp;<span class="constructor">Dockerfile</span>.t)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;generate_dockerfiles_in_directories&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?crunch:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">Bytes</span>.t&nbsp;*&nbsp;<span class="constructor">Dockerfile</span>.t)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;generate_dockerfiles_in_git_branches&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?readme:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?crunch:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">Bytes</span>.t&nbsp;*&nbsp;<span class="constructor">Dockerfile</span>.t)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+<span class="keyword">end</span></code></body></html>

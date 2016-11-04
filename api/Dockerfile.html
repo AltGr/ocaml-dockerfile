@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Dockerfile_opam.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Dockerfile" rel="Chapter" href="Dockerfile.html">
+<link title="Dockerfile_opam" rel="Chapter" href="Dockerfile_opam.html">
+<link title="Dockerfile_distro" rel="Chapter" href="Dockerfile_distro.html">
+<link title="Dockerfile_opam_cmdliner" rel="Chapter" href="Dockerfile_opam_cmdliner.html"><link title="Core combinators and serializers" rel="Section" href="#2_Corecombinatorsandserializers">
+<link title="Dockerfile commands" rel="Section" href="#2_Dockerfilecommands">
+<link title="Distribution-specific utility functions" rel="Section" href="#2_Distributionspecificutilityfunctions">
+<title>Dockerfile</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Dockerfile_opam.html" title="Dockerfile_opam">Next</a>
+</div>
+<h1>Module <a href="type_Dockerfile.html">Dockerfile</a></h1>
+
+<pre><span class="keyword">module</span> Dockerfile: <code class="code"><span class="keyword">sig</span></code> <a href="Dockerfile.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info module top">
+Generate <code class="code"><span class="constructor">Dockerfile</span></code> scripts for use with the Docker container manager<br>
+</div>
+<hr width="100%">
+<br>
+<h2 id="2_Corecombinatorsandserializers">Core combinators and serializers</h2><br>
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+
+
+<pre><span id="VALt_of_sexp"><span class="keyword">val</span> t_of_sexp</span> : <code class="type">Sexplib.Sexp.t -> <a href="Dockerfile.html#TYPEt">t</a></code></pre>
+<pre><span id="VALsexp_of_t"><span class="keyword">val</span> sexp_of_t</span> : <code class="type"><a href="Dockerfile.html#TYPEt">t</a> -> Sexplib.Sexp.t</code></pre><div class="info ">
+<code class="code">t</code> is a list of Dockerfile lines<br>
+</div>
+
+<pre><span id="VALstring_of_t"><span class="keyword">val</span> string_of_t</span> : <code class="type"><a href="Dockerfile.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+<code class="code">string_of_t t</code> converts a <a href="Dockerfile.html#TYPEt"><code class="code"><span class="constructor">Dockerfile</span>.t</code></a> into a Dockerfile format entry<br>
+</div>
+
+<pre><span id="VAL(@@)"><span class="keyword">val</span> (@@)</span> : <code class="type"><a href="Dockerfile.html#TYPEt">t</a> -> <a href="Dockerfile.html#TYPEt">t</a> -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">a @@ b</code> concatenates two Dockerfile fragments into one.<br>
+</div>
+
+<pre><span id="VAL(@@@)"><span class="keyword">val</span> (@@@)</span> : <code class="type"><a href="Dockerfile.html#TYPEt">t</a> -> <a href="Dockerfile.html#TYPEt">t</a> list -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">a @@@ b</code> concatenates the <code class="code">b</code> list of Dockerfile fragments onto <code class="code">a</code>.<br>
+</div>
+
+<pre><span id="VALempty"><span class="keyword">val</span> empty</span> : <code class="type"><a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+An empty set of instruction lines.<br>
+</div>
+
+<pre><span id="VALmaybe"><span class="keyword">val</span> maybe</span> : <code class="type">('a -> <a href="Dockerfile.html#TYPEt">t</a>) -> 'a option -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">maybe f v</code> returns <a href="Dockerfile.html#VALempty"><code class="code"><span class="constructor">Dockerfile</span>.empty</code></a> if the optional value <code class="code">v</code> is <code class="code"><span class="constructor">None</span></code>, and
+    otherwise applies <code class="code">f</code> to the <code class="code"><span class="constructor">Some</span></code> value in <code class="code">v</code>.<br>
+</div>
+<br>
+<h2 id="2_Dockerfilecommands">Dockerfile commands</h2><br>
+
+<pre><span id="VALcomment"><span class="keyword">val</span> comment</span> : <code class="type">('a, unit, string, <a href="Dockerfile.html#TYPEt">t</a>) Pervasives.format4 -> 'a</code></pre><div class="info ">
+Adds a comment to the Dockerfile for documentation purposes<br>
+</div>
+
+<pre><span id="VALfrom"><span class="keyword">val</span> from</span> : <code class="type">?tag:string -> string -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+The <code class="code">from</code> instruction sets the base image for subsequent instructions.
+<p>
+<ul>
+<li>A valid Dockerfile must have <code class="code">from</code> as its first instruction. The image
+      can be any valid image.</li>
+<li><code class="code">from</code> must be the first non-comment instruction in the Dockerfile.</li>
+<li><code class="code">from</code> can appear multiple times within a single Dockerfile in order to
+      create multiple images. Simply make a note of the last image ID output
+      by the commit before each new FROM command.</li>
+</ul>
+
+    If no <code class="code">tag</code> is supplied, <code class="code">latest</code> is assumed. If the used tag does not
+    exist, an error will be returned.<br>
+</div>
+
+<pre><span id="VALmaintainer"><span class="keyword">val</span> maintainer</span> : <code class="type">('a, unit, string, <a href="Dockerfile.html#TYPEt">t</a>) Pervasives.format4 -> 'a</code></pre><div class="info ">
+<code class="code">maintainer</code> sets the author field of the generated images.<br>
+</div>
+
+<pre><span id="VALrun"><span class="keyword">val</span> run</span> : <code class="type">('a, unit, string, <a href="Dockerfile.html#TYPEt">t</a>) Pervasives.format4 -> 'a</code></pre><div class="info ">
+<code class="code">run fmt</code> will execute any commands in a new layer on top of the current
+  image and commit the results. The resulting committed image will be used
+  for the next step in the Dockerfile.  The string result of formatting
+  <code class="code">arg</code> will be passed as a <code class="code">/bin/sh -c</code> invocation.<br>
+</div>
+
+<pre><span id="VALrun_exec"><span class="keyword">val</span> run_exec</span> : <code class="type">string list -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">run_exec args</code> will execute any commands in a new layer on top of the current
+  image and commit the results. The resulting committed image will be used
+  for the next step in the Dockerfile.  The <code class="code">args</code> form makes it possible
+  to avoid shell string munging, and to run commands using a base image that
+  does not contain <code class="code">/bin/sh</code>.<br>
+</div>
+
+<pre><span id="VALcmd"><span class="keyword">val</span> cmd</span> : <code class="type">('a, unit, string, <a href="Dockerfile.html#TYPEt">t</a>) Pervasives.format4 -> 'a</code></pre><div class="info ">
+<code class="code">cmd args</code> provides defaults for an executing container. These defaults
+  can include an executable, or they can omit the executable, in which case
+  you must specify an <a href="Dockerfile.html#VALentrypoint"><code class="code"><span class="constructor">Dockerfile</span>.entrypoint</code></a> as well.  The string result of formatting
+  <code class="code">arg</code> will be passed as a <code class="code">/bin/sh -c</code> invocation.
+<p>
+
+  There can only be one <code class="code">cmd</code> in a Dockerfile. If you list more than one 
+  then only the last <code class="code">cmd</code> will take effect.<br>
+</div>
+
+<pre><span id="VALcmd_exec"><span class="keyword">val</span> cmd_exec</span> : <code class="type">string list -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">cmd_exec args</code> provides defaults for an executing container. These defaults
+  can include an executable, or they can omit the executable, in which case
+  you must specify an <a href="Dockerfile.html#VALentrypoint"><code class="code"><span class="constructor">Dockerfile</span>.entrypoint</code></a> as well.  The first argument to the <code class="code">args</code>
+  list must be the full path to the executable. 
+<p>
+
+  There can only be one <code class="code">cmd</code> in a Dockerfile. If you list more than one 
+  then only the last <code class="code">cmd</code> will take effect.<br>
+</div>
+
+<pre><span id="VALexpose_port"><span class="keyword">val</span> expose_port</span> : <code class="type">int -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">expose_port</code> informs Docker that the container will listen on the specified
+  network port at runtime.<br>
+</div>
+
+<pre><span id="VALexpose_ports"><span class="keyword">val</span> expose_ports</span> : <code class="type">int list -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">expose_ports</code> informs Docker that the container will listen on the specified
+  network ports at runtime.<br>
+</div>
+
+<pre><span id="VALenv"><span class="keyword">val</span> env</span> : <code class="type">(string * string) list -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">env</code> sets the list of environment variables supplied with the
+  (&lt;key&gt;, &lt;value&gt;) tuple. This value will be passed to all future <a href="Dockerfile.html#VALrun"><code class="code"><span class="constructor">Dockerfile</span>.run</code></a>
+  instructions. This is functionally equivalent to prefixing a shell
+  command with <code class="code">&lt;key&gt;=&lt;value&gt;</code>.<br>
+</div>
+
+<pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type">src:string list -> dst:string -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">add ~src ~dst</code> copies new files, directories or remote file URLs
+  from <code class="code">src</code> and adds them to the filesystem of the container at the
+  <code class="code">dst</code> path.
+<p>
+
+  Multiple <code class="code">src</code> resource may be specified but if they are files or
+  directories then they must be relative to the source directory that
+  is being built (the context of the build).
+<p>
+
+  Each <code class="code">src</code> may contain wildcards and matching will be done using
+  Go's filepath.Match rules. 
+<p>
+
+  All new files and directories are created with a UID and GID of 0.
+  In the case where <code class="code">src</code> is a remote file URL, the destination will
+  have permissions of 600. If the remote file being retrieved has an
+  HTTP Last-Modified header, the timestamp from that header will be
+  used to set the mtime on the destination file. Then, like any other
+  file processed during an ADD, mtime will be included in the
+  determination of whether or not the file has changed and the cache
+  should be updated.<br>
+</div>
+
+<pre><span id="VALcopy"><span class="keyword">val</span> copy</span> : <code class="type">src:string list -> dst:string -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">copy ~src ~dst</code> copies new files or directories from <code class="code">src</code> and
+  adds them to the filesystem of the container at the path <code class="code">dst</code>.<br>
+</div>
+
+<pre><span id="VALuser"><span class="keyword">val</span> user</span> : <code class="type">('a, unit, string, <a href="Dockerfile.html#TYPEt">t</a>) Pervasives.format4 -> 'a</code></pre><div class="info ">
+<code class="code">user fmt</code> sets the user name or UID to use when running the image
+  and for any <a href="Dockerfile.html#VALrun"><code class="code"><span class="constructor">Dockerfile</span>.run</code></a>, <a href="Dockerfile.html#VALcmd"><code class="code"><span class="constructor">Dockerfile</span>.cmd</code></a>, <a href="Dockerfile.html#VALentrypoint"><code class="code"><span class="constructor">Dockerfile</span>.entrypoint</code></a> commands that follow it in
+  the Dockerfile.<br>
+</div>
+
+<pre><span id="VALworkdir"><span class="keyword">val</span> workdir</span> : <code class="type">('a, unit, string, <a href="Dockerfile.html#TYPEt">t</a>) Pervasives.format4 -> 'a</code></pre><div class="info ">
+<code class="code">workdir fmt</code> sets the working directory for any <a href="Dockerfile.html#VALrun"><code class="code"><span class="constructor">Dockerfile</span>.run</code></a>, <a href="Dockerfile.html#VALcmd"><code class="code"><span class="constructor">Dockerfile</span>.cmd</code></a>
+  and <a href="Dockerfile.html#VALentrypoint"><code class="code"><span class="constructor">Dockerfile</span>.entrypoint</code></a> instructions that follow it in the Dockerfile.
+<p>
+
+  It can be used multiple times in the one Dockerfile. If a relative
+  path is provided, it will be relative to the path of the previous
+  <a href="Dockerfile.html#VALworkdir"><code class="code"><span class="constructor">Dockerfile</span>.workdir</code></a> instruction.<br>
+</div>
+
+<pre><span id="VALvolume"><span class="keyword">val</span> volume</span> : <code class="type">('a, unit, string, <a href="Dockerfile.html#TYPEt">t</a>) Pervasives.format4 -> 'a</code></pre><div class="info ">
+<code class="code">volume fmt</code> will create a mount point with the specified name
+  and mark it as holding externally mounted volumes from native host
+  or other containers. The value can be a JSON array or a plain string
+  with multiple arguments that specify several mount points.<br>
+</div>
+
+<pre><span id="VALvolumes"><span class="keyword">val</span> volumes</span> : <code class="type">string list -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">volumes mounts</code> will create mount points with the specified names
+  in <code class="code">mounts</code> and mark them as holding externally mounted volumes
+  from native host or other containers.<br>
+</div>
+
+<pre><span id="VALentrypoint"><span class="keyword">val</span> entrypoint</span> : <code class="type">('a, unit, string, <a href="Dockerfile.html#TYPEt">t</a>) Pervasives.format4 -> 'a</code></pre><div class="info ">
+<code class="code">entrypoint fmt</code> allows you to configure a container that will
+  run as an executable.  The <code class="code">fmt</code> string will be executed using
+  a <code class="code">/bin/sh</code> subshell.
+<p>
+
+  The shell form prevents any <a href="Dockerfile.html#VALcmd"><code class="code"><span class="constructor">Dockerfile</span>.cmd</code></a> or <a href="Dockerfile.html#VALrun"><code class="code"><span class="constructor">Dockerfile</span>.run</code></a> command line arguments
+  from being used, but has the disadvantage that your <a href="Dockerfile.html#VALentrypoint"><code class="code"><span class="constructor">Dockerfile</span>.entrypoint</code></a>
+  will be started as a subcommand of <code class="code">/bin/sh -c</code>, which does not pass
+  signals. This means that the executable will not be the container's
+  PID 1 - and will not receive Unix signals - so your executable will
+  not receive a SIGTERM from <code class="code">docker stop &lt;container&gt;</code>.
+<p>
+
+  To get around this limitation, use the <a href="Dockerfile.html#VALentrypoint_exec"><code class="code"><span class="constructor">Dockerfile</span>.entrypoint_exec</code></a> command
+  to directly execute an argument list without a subshell.<br>
+</div>
+
+<pre><span id="VALentrypoint_exec"><span class="keyword">val</span> entrypoint_exec</span> : <code class="type">string list -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">entrypoint fmt</code> allows you to configure a container that will
+  run as an executable.  You can use the exec form here to set fairly
+  stable default commands and arguments and then use either <a href="Dockerfile.html#VALcmd"><code class="code"><span class="constructor">Dockerfile</span>.cmd</code></a> or
+  <a href="Dockerfile.html#VALcmd_exec"><code class="code"><span class="constructor">Dockerfile</span>.cmd_exec</code></a> to set additional defaults that are more likely to be changed
+  by the user starting the Docker container.<br>
+</div>
+
+<pre><span id="VALonbuild"><span class="keyword">val</span> onbuild</span> : <code class="type"><a href="Dockerfile.html#TYPEt">t</a> -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">onbuild t</code> adds to the image a trigger instruction <code class="code">t</code> to be
+  executed at a later time, when the image is used as the base for
+  another build. The trigger will be executed in the context of the
+  downstream build, as if it had been inserted immediately after the
+  <a href="Dockerfile.html#VALfrom"><code class="code"><span class="constructor">Dockerfile</span>.from</code></a> instruction in the downstream Dockerfile.
+<p>
+
+  Any build instruction can be registered as a trigger.
+<p>
+
+  This is useful if you are building an image which will be used as a
+  base to build other images, for example an application build environment
+  or a daemon which may be customized with user-specific configuration.<br>
+</div>
+
+<pre><span id="VALlabel"><span class="keyword">val</span> label</span> : <code class="type">(string * string) list -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">label l</code> adds metadata to an image via a list of key-value pairs.
+  To include spaces within a label value, use quotes and backslashes as
+  you would in command-line parsing. An image can have more than one label.
+  To specify multiple labels, Docker recommends combining labels into a
+  single label instruction where possible. Each label instruction produces
+  a new layer which can result in an inefficient image if you use many labels.
+<p>
+
+  Labels are additive including <code class="code"><span class="constructor">LABEL</span></code>s in <code class="code"><span class="constructor">FROM</span></code> images. If Docker
+  encounters a label/key that already exists, the new value overrides any
+  previous labels with identical keys.
+<p>
+
+  To view an image’s labels, use the <code class="code">docker inspect</code> command.<br>
+</div>
+
+<pre><span id="VALcrunch"><span class="keyword">val</span> crunch</span> : <code class="type"><a href="Dockerfile.html#TYPEt">t</a> -> <a href="Dockerfile.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">crunch t</code> will reduce coincident <a href="Dockerfile.html#VALrun"><code class="code"><span class="constructor">Dockerfile</span>.run</code></a> commands into a single
+  one that is chained using the shell <code class="code"><span class="keywordsign">&amp;&amp;</span></code> operator. This reduces the
+  number of layers required for a production image.<br>
+</div>
+<br>
+<h2 id="2_Distributionspecificutilityfunctions">Distribution-specific utility functions</h2><br>
+
+<pre><span class="keyword">module</span> <a href="Dockerfile.Linux.html">Linux</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Dockerfile.Linux.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><div class="info">
+Linux-specific shell commands that are of general use.
+</div>
+</body></html>
